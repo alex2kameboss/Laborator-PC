@@ -10,34 +10,45 @@
 
 #define FOSC 16e6 // 16MHz
 
+// save for other labs
+class UART {
+ public: 
+  void init() {
+    // TODO: 1. configure UART
+    // set UART pin directions
+    // set baud rate 9600
+    // enable RX and TX
+    // set frame format: 8 bits, 1 stop bit, no parity
+    // DO NOT CHAMGE ALL THE BITS
+  }
+
+   void writeByte(const char& d) {
+    // TODO: 2. implement write + test it and capture on osciloscope
+    // wait to empty transmit buffer
+    // write data
+  }
+
+  char readByte() {
+    // TODO: 3. implement read
+    // wait for data
+    // read data and return it
+  }
+
+  void writeString(const char* msg) {
+    for (int i = 0; i < strlen(msg); i++)
+      writeByte(msg[i]);
+  }
+};
+
+UART uart;
+
 void setup() {
-  // TODO: 1. configure UART
-  // set UART pin direction
-  // set baud rate 9600
-  // enable RX and TX
-  // set frame format: 8 bits, 1 stop bit, no parity
-}
-
-void uartWrite(unsigned char d) {
-  // TODO: 2. implement write + test it and capture on osciloscope
-  // wait to empty transmit buffer
-  // write data
-}
-
-unsigned char uartRead() {
-  // TODO: 3. implement read
-  // wait for data
-  // read data
-}
-
-void uartWrite(const char* msg) {
-  for (int i = 0; i < strlen(msg); i++)
-    uartWrite(msg[i]);
+  uart.init();
 }
 
 void responseBack(const char* userMsg) {
-  uartWrite("You said: ");
-  uartWrite(userMsg);
+  uart.writeString("You said: ");
+  uart.writeString(userMsg);
 }
 
 void loop() {
