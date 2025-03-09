@@ -28,6 +28,11 @@ class UART {
     // write data
   }
 
+  bool available() {
+    // TODO: 3. check if are data in UART buffer
+    return false;
+  }
+
   char readByte() {
     // TODO: 3. implement read
     // wait for data
@@ -53,5 +58,10 @@ void responseBack(const char* userMsg) {
 
 void loop() {
   // TODO: 3. buffer bytes from user and when reach newline(\n) send the buffer back - use responseBack(...)
-  // TODO: 4. implementa text protocol, minimal turn leds on/off, read btn state
+  // TODO: 4. implemente a text protocol with the folowing mininal features:
+  //  - one button to read state (pressed or not)
+  //  - one led to set state (on or off)
+  //  - one blinking led (500ms on, 200ms off) and enable or disable it
+  // DO NOT BLOCK THE MCU
+  // HINT: standalone timer, internal timer, multiple otions
 }
