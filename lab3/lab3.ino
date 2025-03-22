@@ -18,7 +18,7 @@ void ADXL_enable() {
 }
 
 void ADXL_disable() {
-  // TODO: 2. deselct ADXL
+  // TODO: 2. deselect ADXL
 }
 
 char ADXL_cmdBuilder(char, bool, bool = false);
@@ -47,8 +47,8 @@ public:
 SpiMaster spi;
 
 void setup() {
-  // TODO: 1. set CS - output
-  DDRB |= (1 << 0);
+  // TODO: 1. set an CS pin and make it as output
+  
 
   ADXL_disable();
 
