@@ -25,7 +25,7 @@ char ADXL_cmdBuilder(char, bool, bool = false);
 
 class SpiMaster{
 public:
-  init() {
+  void init() {
     // TODO: 1. configure SPI
     // set MOSI, SCK - output
     // set MISO - input
@@ -65,7 +65,7 @@ void setup() {
   delay(500);
 }
 
-char ADXL_cmdBuilder(char addr, bool rw, bool mb = false) {
+char ADXL_cmdBuilder(char addr, bool rw, bool mb) {
   return (addr & 0b00111111) | (mb << 6) | (rw << 7);
 }
 
