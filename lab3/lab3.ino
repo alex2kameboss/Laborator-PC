@@ -27,6 +27,10 @@ class SpiMaster{
 public:
   void init() {
     // TODO: 1. configure SPI
+    /* ---!VERY IMPORTANT!--- */
+    // write 1 on CS after set CS as OUTPUT
+
+    // in the end configure SPI
     // set MOSI, SCK - output
     // set MISO - input
     // enable SPI as master
