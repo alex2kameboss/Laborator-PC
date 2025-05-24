@@ -1,6 +1,8 @@
 #ifndef UART_H
 #define UART_H
 
+#define FOSC 16e6 // 16MHz
+
 /// @brief Implement high level functions for UART protocol in ATmega328p
 class Uart {
 public: 
