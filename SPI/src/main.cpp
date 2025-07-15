@@ -15,7 +15,9 @@
 // use UART lib from lab2 to send messages to PC
 // use itoa to convert int to string
 
-#include <Arduino.h>
+#include "Arduino.h"
+#include "avr8-stub.h"
+#include "app_api.h" // only needed with flash breakpoints
 #include <SpiMaster.h>
 
 SpiMaster spi;
@@ -33,6 +35,9 @@ char ADXL_cmdBuilder(char addr, bool rw, bool mb) {
 }
 
 void setup() {
+  // initialize GDB stub
+  debug_init();
+
   // TODO: 1. set an CS pin and make it as output
   
   ADXL_disable();

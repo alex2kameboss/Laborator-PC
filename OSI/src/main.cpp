@@ -1,7 +1,9 @@
 // Objectives:
 // 1. implement an OSI model for ADXL345 with I2C and SPI
 
-#include <Arduino.h>
+#include "Arduino.h"
+#include "avr8-stub.h"
+#include "app_api.h" // only needed with flash breakpoints
 
 // TODO: 1. based on IAdxlTransport interface implement two other classes
 // - one I2cTransport for I2C protocol
@@ -22,7 +24,8 @@
 // Adxl adxl(new SpiTransport);
 
 void setup() {
-  
+    // initialize GDB stub
+    debug_init();
 }
 
 void loop() {

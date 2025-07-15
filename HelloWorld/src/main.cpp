@@ -1,8 +1,12 @@
-#include <Arduino.h>
+#include "Arduino.h"
+#include "avr8-stub.h"
+#include "app_api.h" // only needed with flash breakpoints
 
 void setup() {
+  // initialize GDB stub
+  debug_init();
+
   // put your setup code here, to run once:
-  Serial.begin(9600);
   pinMode(13, OUTPUT);
 }
 
@@ -12,5 +16,4 @@ void loop() {
   delay(500);
   digitalWrite(13, HIGH);
   delay(500);
-  Serial.println("Serial test: PASSED!");
 }
