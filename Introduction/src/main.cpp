@@ -16,45 +16,45 @@
 #include "app_api.h" // only needed with flash breakpoints
 
 void setup() {
-  // initialize GDB stub
-  debug_init();
+    // initialize GDB stub
+    debug_init();
 
-  // TODO: 1. configure pin directions and turn off leds
+    // TODO: 1. configure pin directions and turn off leds
 }
 
 void inline setLed0State(LedState state) {
-  // TODO: 1. turn led0 on or off based on state
+    // TODO: 1. turn led0 on or off based on state
 }
 
 // read button state
 ButtonState inline readBtnState() {
-  // TODO: 1. return if button is pressed
- return ButtonState::NOT_PRESSED; 
+    // TODO: 1. return if button is pressed
+    return ButtonState::NOT_PRESSED; 
 }
 
 void inline setLed1State(LedState state) {
-  // TODO: 2. turn led1 on or off based on state
+    // TODO: 2. turn led1 on or off based on state
 }
 
 static void oscillatingLed() {
-  // TODO: 2. toggle the led1 with the pattern: 500ms on, 200ms off
-  // TODO: 3. analyze on oscliisop the  led1 signal and measure the timing
+    // TODO: 2. toggle the led1 with the pattern: 500ms on, 200ms off
+    // TODO: 3. analyze on oscliisop the  led1 signal and measure the timing
 }
 
 // detect button press and toggle the led0 state
 static void toggleLed(ButtonState btnState) {
-  static bool lastState = ButtonState::NOT_PRESSED;
-  static bool ledState = false;
-  if ( lastState == ButtonState::NOT_PRESSED && 
-        btnState == ButtonState::PRESSED ) {
-    ledState = !ledState;
-    setLed0State(ledState ? LedState::ON : LedState::OFF);
-  }
-  lastState = btnState;
+    static bool lastState = ButtonState::NOT_PRESSED;
+    static bool ledState = false;
+    if ( lastState == ButtonState::NOT_PRESSED && 
+            btnState == ButtonState::PRESSED ) {
+        ledState = !ledState;
+        setLed0State(ledState ? LedState::ON : LedState::OFF);
+    }
+    lastState = btnState;
 }
 
 void loop() {
-  toggleLed(readBtnState());
-  oscillatingLed();
-  delay(100);
+    toggleLed(readBtnState());
+    oscillatingLed();
+    delay(100);
 }
