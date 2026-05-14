@@ -8,11 +8,12 @@ void I2cMaster::_writeByte(const char& data) {
     // wait for ack or nack
 }
 
-void I2cMaster::_readByte(char& data) {
+char I2cMaster::_readByte(bool sendAck) {
     // TODO: 2. read 1 byte from I2C
-    // send command to read byte
-    // wait for ack or nack
+    // send command to read byte + response
+    // wait for transaction end
     // read byte
+    return 0x00;
 }
 
 void I2cMaster::init() {
@@ -44,7 +45,7 @@ bool I2cMaster::writeAddrRead(const char& addr) {
     return false;
 }
 
-bool I2cMaster::writeByte(const char& d, I2cResponse expectedResponse) {
+bool I2cMaster::writeByte(const char& d) {
     // TODO: 2. send byte on I2C
     // send byte
     _writeByte(d);
@@ -52,11 +53,9 @@ bool I2cMaster::writeByte(const char& d, I2cResponse expectedResponse) {
     return false;
 }
 
-bool I2cMaster::readByte(char& d, I2cResponse expectedResponse) {
+char I2cMaster::readByte(I2cResponse response) {
     // TODO: 2. read byte from I2C
-    _readByte(d);
-    // retrun if ack received
-    return false;
+    return _readByte(response);
 }
 
 void I2cMaster::sendStop() {

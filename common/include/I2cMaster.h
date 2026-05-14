@@ -11,8 +11,9 @@ protected:
     void _writeByte(const char& data);
 
     /// @brief Read one byte from I2C
-    /// @param data The response byte will be in this variable
-    void _readByte(char& data);
+    /// @param sendAck Flag if need to send acknowledge
+    /// @return The byte received from transaction
+    char _readByte(bool sendAck);
 public:
     /// @brief This function enable and configure I2C peripheral. Also configure MCU pins
     void init();
@@ -32,15 +33,13 @@ public:
 
     /// @brief Send one byte over I2C, after addressing stage
     /// @param d Data byte to be send
-    /// @param expectedResponse The expected response
-    /// @return True if response is equal with expected response
-    bool writeByte(const char& d, I2cResponse expectedResponse = ACKNOWLEDGE);
+    /// @return True if acknowledge was received
+    bool writeByte(const char& d);
 
     /// @brief Read one byte from I2C, after addressing stage
-    /// @param d The response will be in this variable
-    /// @param expectedResponse The expected response
-    /// @return True if response is equal with expected response
-    bool readByte(char& d, I2cResponse expectedResponse = ACKNOWLEDGE);
+    /// @param response The response to send after receive
+    /// @return The byte received
+    char readByte(I2cResponse response = ACKNOWLEDGE);
 
     /// @brief Send stop condition for I2C
     void sendStop();
