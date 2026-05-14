@@ -11,9 +11,10 @@
 // 2 LEDs + resistors
 // 1 Push Button + resistor
 
-#include "Arduino.h"
+#include <avr/io.h>
 #include "avr8-stub.h"
 #include "app_api.h" // only needed with flash breakpoints
+#include <laboratory_types.h>
 
 void setup() {
     // initialize GDB stub

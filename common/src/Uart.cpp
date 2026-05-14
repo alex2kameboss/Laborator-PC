@@ -1,5 +1,6 @@
 #include <Uart.h>
 #include <string.h>
+#include <avr/io.h>
 
 void Uart::init() {
     // TODO: 1. configure UART

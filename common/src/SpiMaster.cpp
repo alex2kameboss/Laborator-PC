@@ -1,4 +1,5 @@
 #include <SpiMaster.h>
+#include <avr/io.h>
 
 void SpiMaster::init() {
     // TODO: 1. configure SPI

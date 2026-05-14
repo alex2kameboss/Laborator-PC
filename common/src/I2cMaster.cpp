@@ -1,4 +1,5 @@
 #include <I2cMaster.h>
+#include <avr/io.h>
 
 void I2cMaster::_writeByte(const char& data) {
     // TODO: 2. send 1 byte on I2C

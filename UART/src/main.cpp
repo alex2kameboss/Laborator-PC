@@ -8,17 +8,12 @@
 // 2 LEDs + resistors
 // 1 Push Button + resistor
 
-#include "Arduino.h"
-#include "avr8-stub.h"
-#include "app_api.h" // only needed with flash breakpoints
+#include <avr/io.h>
 #include <Uart.h>
 
 Uart uart;
 
 void setup() {
-    // initialize GDB stub
-    debug_init();
-
     uart.init();
 }
 
